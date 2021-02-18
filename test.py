@@ -4,7 +4,8 @@ from scipy.optimize import minimize
 single_qubit_sv = StateVector(1)
 coin_toss = [CircuitLayer("H", target_qubits=[0])]
 evolve(single_qubit_sv, coin_toss)
-get_counts(single_qubit_sv, num_shots=2048)
+counts = get_counts(single_qubit_sv, num_shots=2048)
+print(*counts.items())
 
 two_qubit_sv = StateVector(2)
 phi_plus = [
@@ -12,9 +13,10 @@ phi_plus = [
     CircuitLayer("X", iscontrolled=True, target_qubits=[0, 1]),
 ]
 evolve(two_qubit_sv, phi_plus)
-two_qubit_sv
+print(two_qubit_sv)
 
-get_counts(two_qubit_sv, num_shots=2048)
+counts = get_counts(two_qubit_sv, num_shots=2048)
+print(*counts.items())
 
 two_qubit_sv = StateVector.from_label("01")
 swap = [
@@ -23,7 +25,8 @@ swap = [
     CircuitLayer("X", True, [0, 1]),
 ]
 evolve(two_qubit_sv, swap)
-get_counts(two_qubit_sv)
+counts = get_counts(two_qubit_sv)
+print(*counts.items())
 
 three_qubit_sv = StateVector(3)
 ghz = [
@@ -32,7 +35,8 @@ ghz = [
     CircuitLayer("X", True, target_qubits=[1, 2]),
 ]
 evolve(three_qubit_sv, ghz)
-get_counts(three_qubit_sv, num_shots=2048)
+counts = get_counts(three_qubit_sv, num_shots=2048)
+print(*counts.items())
 
 def cost_function(theta: float) -> float:
     # Prepare ansatz
@@ -54,5 +58,4 @@ def cost_function(theta: float) -> float:
 
 theta = np.pi / 4
 minimum = minimize(cost_function, theta, method="COBYLA", tol=1e-6)
-
 print(minimum)
