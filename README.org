@@ -51,7 +51,7 @@ The way to use these gates is detailed below.
 Quantum circuits are implemented as list of =CircuitLayer='s. The class
 =CircuitLayer= contains three fields:
 - =gate=: =gate= can either be a string from
-  ="I", X", "Y", "Z", "H", "S", "Sdag", "T", "Tdag"= representing the gates
+  =I, X, Y, Z, H, S, Sdag, T, Tdag= representing the gates
   mentioned above or an =ndarray= of shape =(2, 2)= representing any arbitrary
   user-defined gate,
 - =iscoupled=: =iscoupled= is a flag that tells if the gate is controlled or not
@@ -138,7 +138,7 @@ print(*counts.items())
 ** GHZ state
 The three qubit GHZ state is an entangled state defined by
 \[
-|\mathrm{GHZ}\rangle = \frac{1}{\sqrt{2}}(|000\rangle + |111\rangle).
+\vert\mathrm{GHZ}\rangle = \frac{1}{\sqrt{2}}( |000\rangle + |111\rangle).
 \]
 #+begin_src jupyter-python :results value
 three_qubit_sv = StateVector(3)
