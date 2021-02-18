@@ -86,6 +86,9 @@ Coin toss is demonstrated by repeated measurements of the \| + ⟩ state.
     evolve(single_qubit_sv, coin_toss)
     counts = get_counts(single_qubit_sv, num_shots=2048)
     print(*counts.items())
+    
+    # output
+    ('0', 1023) ('1', 1025)
 
 Bell basis states
 -----------------
@@ -101,6 +104,9 @@ state.
     ]
     evolve(two_qubit_sv, phi_plus)
     print(two_qubit_sv)
+    
+    # output
+    [7.07106769e-01 0.00000000e+00 4.32978040e-17 7.07106769e-01]
 
 An easier way to see that it is indeed the \|*Φ*<sup>+</sup>⟩ state is
 to do repeated measurements - \|00⟩ and \|11⟩ should appear in roughly
@@ -109,6 +115,9 @@ state.)
 
     counts = get_counts(two_qubit_sv, num_shots=2048)
     print(*counts.items())
+    
+    # output
+    ('11', 1044) ('00', 1004)
 
 SWAP gate
 ---------
@@ -128,6 +137,9 @@ two.
     evolve(two_qubit_sv, swap)
     counts = get_counts(two_qubit_sv)
     print(*counts.items())
+    
+    # output
+    ('10', 1024)
 
 GHZ state
 ---------
@@ -146,6 +158,9 @@ $$
     evolve(three_qubit_sv, ghz)
     counts = get_counts(three_qubit_sv, num_shots=2048)
     print(*counts.items())
+
+    # output
+    ('111', 1026) ('000', 1022)
 
 Variational quantum eigensolver
 -------------------------------
@@ -180,3 +195,12 @@ gates.
     theta = np.pi / 4
     minimum = minimize(cost_function, theta, method="COBYLA", tol=1e-6)
     print(minimum)
+
+    # output
+    fun: -1.0
+    maxcv: 0.0
+    message: 'Optimization terminated successfully.'
+    nfev: 19
+    status: 1
+    success: True
+    x: array(3.16039816)
