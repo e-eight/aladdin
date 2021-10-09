@@ -51,7 +51,7 @@ Quantum circuits are implemented as list of `CircuitLayer`'s. The class
     `I, X, Y, Z, H, S, Sdag, T, Tdag` representing the gates mentioned
     above or an `ndarray` of shape `(2, 2)` representing any arbitrary
     user-defined gate,
--   `iscoupled`: `iscoupled` is a flag that tells if the gate is
+-   `iscontrolled`: `iscontrolled` is a flag that tells if the gate is
     controlled or not (default is `False`),
 -   `target_qubits`: `target_qubits` is either a list of qubits on which
     `gate` will act if not controlled or `[control_qubit, target_qubit]`
