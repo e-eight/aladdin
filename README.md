@@ -119,7 +119,7 @@ SWAP gate
 ---------
 
 The SWAP gate swaps the states of two qubits, for example \|01⟩ becomes
-10⟩. The SWAP gate is not internally implemented in Aladdin, but it can
+\|10⟩. The SWAP gate is not internally implemented in Aladdin, but it can
 be represented by three consecutive CNOT gates. The control and target
 qubits are flipped for the second CNOT gate in comparison to the other
 two.
