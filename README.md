@@ -25,7 +25,7 @@ Quantum gates
 
 Single qubit gates are implemented as special cases of the most general
 single qubit unitary:
-<img src="https://latex.codecogs.com/svg.image?U&space;=&space;\begin{pmatrix}\cos&space;(\theta&space;/&space;2)&space;&&space;-e^{i\gamma}&space;\sin&space;(\theta&space;/&space;2)&space;\\&space;e^{i\phi}&space;\sin&space;(\theta&space;/&space;2)&space;&&space;e^{i\gamma&space;&plus;&space;i\phi}&space;\cos&space;(\theta&space;/&space;2)\end{pmatrix}" title="U = \begin{pmatrix}\cos (\theta / 2) & -e^{i\gamma} \sin (\theta / 2) \\ e^{i\phi} \sin (\theta / 2) & e^{i\gamma + i\phi} \cos (\theta / 2)\end{pmatrix}" />
+<img src="https://latex.codecogs.com/svg.image?\begin{equation}U&space;=&space;\begin{pmatrix}\cos&space;(\theta&space;/&space;2)&space;&&space;-e^{i\gamma}&space;\sin&space;(\theta&space;/&space;2)&space;\\&space;e^{i\phi}&space;\sin&space;(\theta&space;/&space;2)&space;&&space;e^{i\gamma&space;&plus;&space;i\phi}&space;\cos&space;(\theta&space;/&space;2)\end{pmatrix}\end{equation}&space;" title="\begin{equation}U = \begin{pmatrix}\cos (\theta / 2) & -e^{i\gamma} \sin (\theta / 2) \\ e^{i\phi} \sin (\theta / 2) & e^{i\gamma + i\phi} \cos (\theta / 2)\end{pmatrix}\end{equation} " />
 This gate is implemented in the `general_unitary_gate` function which
 takes in as argument the three angles `theta`, `phi`, and `gamma`. Any
 single qubit unitary can be formed by providing proper values of those
