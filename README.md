@@ -3,7 +3,7 @@ in Python with NumPy. This is my submission for the QOSF 2021 mentorship
 program. At present only state vector and some single qubit gates have
 been implemented. No double qubit gates are implemented directly. The
 actions of controlled-unitary gates are evaluated by using the relation
-*C**U* = \|0⟩⟨0\| ⊗ *I* + \|1⟩⟨1\| ⊗ *U*. Aladdin uses the big-endian
+*CU = |0⟩⟨0| ⊗ I + |1⟩⟨1| ⊗ U*. Aladdin uses the big-endian
 notation.
 
 Why Aladdin?
@@ -75,7 +75,7 @@ your local Python environment.
 Coin toss
 ---------
 
-Coin toss is demonstrated by repeated measurements of the \| + ⟩ state.
+Coin toss is demonstrated by repeated measurements of the | + ⟩ state.
 
     single_qubit_sv = StateVector(1)
     coin_toss = [CircuitLayer("H", target_qubits=[0])]
@@ -118,8 +118,8 @@ state.)
 SWAP gate
 ---------
 
-The SWAP gate swaps the states of two qubits, for example \|01⟩ becomes
-\|10⟩. The SWAP gate is not internally implemented in Aladdin, but it can
+The SWAP gate swaps the states of two qubits, for example |01⟩ becomes
+|10⟩. The SWAP gate is not internally implemented in Aladdin, but it can
 be represented by three consecutive CNOT gates. The control and target
 qubits are flipped for the second CNOT gate in comparison to the other
 two.
@@ -141,9 +141,7 @@ GHZ state
 ---------
 
 The three qubit GHZ state is an entangled state defined by
-$$
-\\vert\\mathrm{GHZ}\\rangle = \\frac{1}{\\sqrt{2}}( \|000\\rangle + \|111\\rangle).
-$$
+<img src="https://latex.codecogs.com/svg.image?\begin{equation}|\mathrm{GHZ}\rangle&space;=&space;\frac{1}{\sqrt{2}}(|000\rangle&space;&plus;&space;|111\rangle)\end{equation}&space;" title="\begin{equation}|\mathrm{GHZ}\rangle = \frac{1}{\sqrt{2}}(|000\rangle + |111\rangle)\end{equation} " />
 
     three_qubit_sv = StateVector(3)
     ghz = [
@@ -165,9 +163,9 @@ Variational quantum eigensolver (VQE) is a hybrid quantum-classical
 algorithm that can possibly show quantum advantage on NISQ devices. It
 is used to find the ground state energy , or lowest eigenvalue, of
 Hamiltonians. I will use VQE to find the lowest eigenvalue of a very
-simple Hamiltonian *Z**Z*. The lowest eigenvalue of this Hamiltonian can
+simple Hamiltonian *ZZ*. The lowest eigenvalue of this Hamiltonian can
 be easily classically calculated. It is -1. For this demonstration I
-will use an ansatz consisting of *R*<sub>*x*</sub>, *H*, and *C**X*
+will use an ansatz consisting of *R*<sub>*x*</sub>, *H*, and *CX*
 gates.
 
     def cost_function(theta: float) -> float:
